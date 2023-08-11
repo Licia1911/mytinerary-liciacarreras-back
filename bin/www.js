@@ -2,7 +2,8 @@
 import app from '../app.js';   //config del servidor
 import debug from'debug';   // mod debug
 import http from'http';     //modulo para crear servidores HTTP
-import { connect } from 'http2';
+import { connect } from 'mongoose';
+
 
 //PORT
 //process.env guarda la configuración de las variables 
