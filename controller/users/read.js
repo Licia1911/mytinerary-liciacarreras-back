@@ -1,5 +1,6 @@
 import User from "../../models/User.js";
-export default async (req, res) => {
+
+export default async (req,res) => {
     //req: objeto con todos los requerimientos que envia el cliente
     //res: objeto de respuesta a devolver al cliente
     try {

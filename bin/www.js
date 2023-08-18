@@ -19,16 +19,16 @@ let server = http.createServer(app);  // creo un servidor normalizado con HTTP
 let ready = ()=> {
   console.log('server ready on port '+port);
   //connect('link de conexion de mongo')
-  connect(process.env.LINK_DB)
+  connect(process.env.LINK_DB) //el método connect devuelve una promesa: trabajar con then-catch o async-await
     .then(()=>console.log('database connected'))
     .catch(err=>console.log(err))
 }
 
-server.listen(port,ready);
+server.listen(port,ready);    //con el metodo listen escucho el puerto para que empiece a funcionar (a levantarse)
 
 
 server.on('error', onError);
-server.on('listening', onListening); //con el metodo listen escucho el puerto para que empiece a funcionar (a levantarse)
+server.on('listening', onListening); 
 
 /**
  * Normalize a port into a number, string, or false.
