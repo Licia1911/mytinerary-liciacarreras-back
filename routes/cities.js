@@ -4,7 +4,7 @@ import read from '../controller/cities/read.js';
 import readOne from '../controller/cities/readOne.js';
 import update from '../controller/cities/update.js'
 import destroy from '../controller/cities/destroy.js';
-
+import carousel from '../controller/cities/carousel.js';
 
 
 let router = express.Router();
@@ -14,7 +14,8 @@ router.post('/', create)
 
 //READ
 router.get('/', read)
-router.get('/:id', readOne)
+router.get('/carousel', carousel)
+router.get('/:id', readOne)   // Los endpoints que llevan params VAN SIEMPRE AL FINAL(Para que no detecte la palabra como parametro configurado)
 
 //UPDATE
 router.put('/:_id', update)
