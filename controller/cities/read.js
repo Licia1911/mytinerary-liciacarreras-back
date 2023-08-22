@@ -10,8 +10,12 @@ export default async (req,res,next) => {
             objetoDeBusqueda.admin_id = req.query.admin_id
         }
         if (req.query.city) {
-            objetoDeBusqueda.city = new RegExp(req.query.city,'i')
-            //new RegExp(req.query.title,'i')
+            const cityFilter = req.query.city.trim(); // Elimina espacios en blanco al comienzo y al final
+            objetoDeBusqueda.city = { $regex: `^${cityFilter}`, $options: "i" };
+            // objetoDeBusqueda.city =req.query.city
+            //objetoDeBusqueda.city = { $regex: `^${req.query.city}`, $options: "i" };
+            // objetoDeBusqueda.city = new RegExp(req.query.city,'i')
+            //new RegExp(req.query.title,'i')+
         }
         if (req.query.sort) {
             objetoDeOrdenamiento.city = req.query.sort
