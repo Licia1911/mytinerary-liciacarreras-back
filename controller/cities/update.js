@@ -3,7 +3,7 @@ import City from "../../models/City.js";
 export default async (req,res,next)=> {
     try {
         let updatedCity = await City.findByIdAndUpdate(
-            req.params._id,
+            req.params.uc_id,
             req.body,
             { new:true }
         )

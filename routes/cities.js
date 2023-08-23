@@ -18,7 +18,7 @@ router.get('/carousel', carousel)
 router.get('/:id', readOne)   // Los endpoints que llevan params VAN SIEMPRE AL FINAL(Para que no detecte la palabra como parametro configurado)
 
 //UPDATE
-router.put('/:_id', update)
+router.put('/:uc_id', update)
 
 //DESTROY
 router.delete('/:id', destroy)
