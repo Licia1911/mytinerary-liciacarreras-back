@@ -1,18 +1,18 @@
 import Itinerary from "../../models/Itinerary.js"
 
-export default async (req, res) => {
+export default async (req, res, next) => {
     try {
-        let allItineraries = await Itinerary.find();
+        let queries = {}
+        if(req.query.city_id){
+            queries.city_id = req.query.city_id
+        }
+        let allItineraries = await Itinerary.find(queries );
         return res.status(200).json({
             success: true,
             message: "Itineraries found!",
             response: allItineraries,
         });
     } catch (error) {
-        return res.status(400).json({
-            succes: false,
-            message: "Itineraries not found",
-            response: null,
-        });
+        next(error)
     }
 };
