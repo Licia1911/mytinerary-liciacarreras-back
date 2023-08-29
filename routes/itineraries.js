@@ -15,9 +15,9 @@ router.get("/", read);
 router.get("/:id", readOne);
 
 //UPDATE
-router.put("/:u_id", update);
+router.put("/:id", update);
 
 //DESTROY
-router.delete("/:d_id", destroy);
+router.delete("/:id", destroy);
 
 export default router;

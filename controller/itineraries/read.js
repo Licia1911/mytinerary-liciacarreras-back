@@ -6,11 +6,12 @@ export default async (req, res, next) => {
         if(req.query.city_id){
             queries.city_id = req.query.city_id
         }
-        let allItineraries = await Itinerary.find(queries );
+        let all = await Itinerary
+        .find( queries );
         return res.status(200).json({
             success: true,
             message: "Itineraries found!",
-            response: allItineraries,
+            response: all,
         });
     } catch (error) {
         next(error)
