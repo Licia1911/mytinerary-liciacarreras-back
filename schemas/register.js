@@ -29,9 +29,9 @@ let registerSchema = joi.object({
         'string.min': "last name must have at least 3 characters please!",
         "string.max": "last name must be less than 21 characters please!",
     }),
-    photo: joi.string().min(3).max(30).empty("").messages({
-        'string.min': "last name must have at least 3 characters please!",
-        "string.max": "last name must be less than 21 characters please!",
+    photo: joi.string().min(3).max(50).empty("").messages({
+        'string.min': "Photo Url must have at least 3 characters please!",
+        "string.max": "Photo Url must be less than 21 characters please!",
     })
 })
 
