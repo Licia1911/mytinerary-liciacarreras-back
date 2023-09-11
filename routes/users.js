@@ -1,4 +1,6 @@
-import express from'express';
+import express from 'express';
+import passport from '../middlewares/passport.js'
+import updatePassHash from '../middlewares/updatePassHash.js'
 import update from '../controller/users/update.js';
 import create from '../controller/users/create.js';
 import read from '../controller/users/read.js';
@@ -16,7 +18,7 @@ router.get('/', read)
 router.get('/:user_id', readOne)
 
 //UPDATE
-router.put('/:u_id', update)
+router.put('/', passport.authenticate("jwt", { session: false }), updatePassHash, update)
 
 
 router.delete('/:id', destroy)
