@@ -19,11 +19,10 @@ let registerSchema = joi.object({
         "any.required": "password is required", //para cuando NO se envía el dato
         "string.empty": "password is required"  //para cuando se envía VACÍO
     }),
-    country: joi.string().required().min(3).max(20).messages({
+    country: joi.string().min(3).max(20).messages({
         'string.min': "country must have at least 3 characters please!",
         "string.max": "country must be less than 21 characters please!",
-        "any.required": "country is required", //para cuando NO se envía el dato
-        "string.empty": "country is required"  //para cuando se envía VACÍO
+
     }),
     lastName: joi.string().min(3).max(20).empty("").messages({
         'string.min': "last name must have at least 3 characters please!",
